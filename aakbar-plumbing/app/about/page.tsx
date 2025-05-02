@@ -77,7 +77,7 @@ export default function AboutPage() {
 
         <div className="container relative">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <ScrollReveal>
+            <FadeIn>
               <div>
                 <span className="text-gold-500 gold-text text-2xl block mb-2">Who We Are</span>
                 <h2 className="text-3xl font-bold mb-6 relative inline-block gold-underline">Our Story</h2>
@@ -96,7 +96,7 @@ export default function AboutPage() {
                   you can count on Aakbar Plumbing to deliver reliable solutions at competitive prices.
                 </p>
               </div>
-            </ScrollReveal>
+            </FadeIn>
 
             <ScrollReveal delay={0.2}>
               <motion.div
@@ -274,7 +274,7 @@ export default function AboutPage() {
           <ScrollReveal>
             <div className="max-w-3xl mx-auto">
               <span className="text-gold-400 gold-text text-2xl block mb-2">Get Started</span>
-              <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-6 text-white">
                 Ready to Experience the Aakbar Plumbing Difference?
               </h2>
               <p className="mb-8 text-lg text-beige-100">
@@ -282,12 +282,12 @@ export default function AboutPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <a href="tel:4167314400">
+                  <Link href="/contact">
                     <Button size="lg" className="bg-gold-500 hover:bg-gold-600 text-navy-900 gap-2 px-8 rounded-full">
                       <Phone size={18} />
                       <span>Call Now: 416-731-4400</span>
                     </Button>
-                  </a>
+                  </Link>
                 </motion.div>
 
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -310,12 +310,12 @@ export default function AboutPage() {
       {/* Floating Action Button */}
       <div className="fixed bottom-8 right-8 z-50">
         <PulseAnimation>
-          <a
-            href="tel:4167314400"
+          <Link
+            href="/contact"
             className="bg-gold-500 hover:bg-gold-600 text-navy-900 w-16 h-16 rounded-full flex items-center justify-center shadow-lg"
           >
             <Phone size={24} />
-          </a>
+          </Link>
         </PulseAnimation>
       </div>
     </div>

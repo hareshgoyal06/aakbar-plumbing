@@ -409,7 +409,7 @@ export default function Home() {
           <ScrollReveal>
             <div className="max-w-3xl mx-auto">
               <span className="text-gold-400 gold-text text-2xl block mb-2">Get Started</span>
-              <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-6">Need Plumbing Services?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-6 text-white">Need Plumbing Services?</h2>
               <p className="mb-8 text-lg text-beige-100">
                 Contact us today for fast, reliable, and affordable plumbing solutions.
               </p>
@@ -438,12 +438,12 @@ export default function Home() {
       {/* Floating Action Button */}
       <div className="fixed bottom-8 right-8 z-50">
         <PulseAnimation>
-          <a
-            href="tel:4167314400"
+          <Link
+            href="/contact"
             className="bg-gold-500 hover:bg-gold-600 text-navy-900 w-16 h-16 rounded-full flex items-center justify-center shadow-lg"
           >
             <Phone size={24} />
-          </a>
+          </Link>
         </PulseAnimation>
       </div>
     </div>

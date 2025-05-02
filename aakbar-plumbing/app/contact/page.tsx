@@ -11,6 +11,7 @@ import {
   PulseAnimation,
 } from "@/components/motion-components"
 import { motion } from "framer-motion"
+import Link from "next/link"
 
 export default function ContactPage() {
   return (
@@ -245,7 +246,7 @@ export default function ContactPage() {
           <ScrollReveal>
             <div className="max-w-3xl mx-auto">
               <span className="text-gold-400 gold-text text-2xl block mb-2">Emergency Service</span>
-              <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-6">Plumbing Emergency?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-6 text-white">Plumbing Emergency?</h2>
               <p className="mb-8 text-lg text-beige-100">
                 Don't wait! Our emergency plumbing team is available 24/7 to help with urgent plumbing issues.
               </p>
@@ -265,12 +266,12 @@ export default function ContactPage() {
       {/* Floating Action Button */}
       <div className="fixed bottom-8 right-8 z-50">
         <PulseAnimation>
-          <a
-            href="tel:4167314400"
+          <Link
+            href="/contact"
             className="bg-gold-500 hover:bg-gold-600 text-navy-900 w-16 h-16 rounded-full flex items-center justify-center shadow-lg"
           >
             <Phone size={24} />
-          </a>
+          </Link>
         </PulseAnimation>
       </div>
     </div>
