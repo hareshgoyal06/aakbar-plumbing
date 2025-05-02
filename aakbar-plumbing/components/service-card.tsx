@@ -20,6 +20,7 @@ import {
 } from "lucide-react"
 import { motion } from "framer-motion"
 import ServiceDetailModal from "./service-detail-modal"
+import Link from "next/link"
 
 interface ServiceCardProps {
   id: string
@@ -94,12 +95,12 @@ export default function ServiceCard({ id, title, description, icon, image, whatW
             <p className="text-navy-600">{description}</p>
           </CardContent>
           <CardFooter className="pb-6 flex flex-col sm:flex-row gap-3 items-center">
-            <a href="tel:4167314400">
+            <Link href="/contact">
               <Button variant="outline" className="gap-2 border-gold-500 text-gold-500 hover:bg-gold-50">
                 <Phone size={16} />
                 <span>Request Service</span>
               </Button>
-            </a>
+            </Link>
 
             {hasDetails && (
               <Button

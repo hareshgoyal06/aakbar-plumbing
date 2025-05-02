@@ -261,16 +261,8 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section
-        className="py-20 relative text-white"
-        style={{
-          backgroundImage: "url('/images/plumber-working.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="absolute inset-0 bg-navy-900/80"></div>
-        <div className="container text-center relative z-10">
+      <section className="py-20 bg-navy-900 text-white">
+        <div className="container text-center">
           <ScrollReveal>
             <div className="max-w-3xl mx-auto">
               <span className="text-gold-400 gold-text text-2xl block mb-2">Get Started</span>

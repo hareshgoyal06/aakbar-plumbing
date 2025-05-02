@@ -15,6 +15,7 @@ import {
   PulseAnimation,
   RotateAnimation,
 } from "@/components/motion-components"
+import { motion } from "framer-motion"
 
 export default function Home() {
   const services = [
@@ -224,29 +225,22 @@ export default function Home() {
 
           <ScrollReveal threshold={0.1}>
             <div className="text-center mt-12">
-              <Button size="lg" className="bg-gold-500 hover:bg-gold-600 text-navy-900">
-                <a href="tel:4167314400" className="flex items-center gap-2">
-                  <Phone size={18} />
-                  <span>Call For Service: 416-731-4400</span>
-                </a>
-              </Button>
+              <Link href="/contact">
+                <Button size="lg" className="bg-gold-500 hover:bg-gold-600 text-navy-900">
+                  <span className="flex items-center gap-2">
+                    <Phone size={18} />
+                    <span>Request Service</span>
+                  </span>
+                </Button>
+              </Link>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
       {/* Testimonials Section */}
-      <section
-        className="py-20 relative"
-        style={{
-          backgroundImage: "url('/images/bathroom-plumbing.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundAttachment: "fixed",
-        }}
-      >
-        <div className="absolute inset-0 bg-navy-900/80"></div>
-        <div className="container relative z-10">
+      <section className="py-20 bg-navy-900/80 text-white">
+        <div className="container">
           <ScrollReveal>
             <div className="text-center mb-12">
               <span className="text-gold-400 gold-text text-2xl block mb-2">Testimonials</span>
@@ -396,39 +390,38 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section
-        className="py-20 relative text-white"
-        style={{
-          backgroundImage: "url('/images/plumber-working.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="absolute inset-0 bg-navy-900/80"></div>
-        <div className="container text-center relative z-10">
+      <section className="py-20 bg-navy-900/80 text-white">
+        <div className="container text-center">
           <ScrollReveal>
             <div className="max-w-3xl mx-auto">
               <span className="text-gold-400 gold-text text-2xl block mb-2">Get Started</span>
-              <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-6 text-white">Need Plumbing Services?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-6 text-white">
+                Ready to Experience the Aakbar Plumbing Difference?
+              </h2>
               <p className="mb-8 text-lg text-beige-100">
-                Contact us today for fast, reliable, and affordable plumbing solutions.
+                Contact us today for all your plumbing needs. We're here to help!
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="tel:4167314400">
-                  <Button size="lg" className="bg-gold-500 hover:bg-gold-600 text-navy-900 gap-2 px-8">
-                    <Phone size={18} />
-                    <span>Call Now: 416-731-4400</span>
-                  </Button>
-                </a>
-                <Link href="/contact">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="bg-transparent border-2 border-white text-white hover:bg-white/10 px-8"
-                  >
-                    Get a Free Quote
-                  </Button>
-                </Link>
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Link href="/contact">
+                    <Button size="lg" className="bg-gold-500 hover:bg-gold-600 text-navy-900 gap-2 px-8 rounded-full">
+                      <Phone size={18} />
+                      <span>Call Now: 416-731-4400</span>
+                    </Button>
+                  </Link>
+                </motion.div>
+
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Link href="/contact">
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="bg-transparent border-2 border-white text-white hover:bg-white/10 px-8 rounded-full"
+                    >
+                      Get a Free Quote
+                    </Button>
+                  </Link>
+                </motion.div>
               </div>
             </div>
           </ScrollReveal>

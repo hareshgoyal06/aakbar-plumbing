@@ -88,10 +88,18 @@ export default function Navbar() {
       transition={{ duration: 0.5 }}
       className={cn(
         "sticky top-0 z-50 w-full transition-all duration-300",
-        scrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4",
+        scrolled 
+          ? "bg-white/90 backdrop-blur-md shadow-lg py-2" 
+          : "bg-transparent py-4",
       )}
     >
-      <div className="container flex items-center justify-between">
+      <motion.div 
+        className="container flex items-center justify-between px-4 sm:px-6"
+        animate={{
+          scale: scrolled ? 1 : 1.02,
+          transition: { duration: 0.3 }
+        }}
+      >
         <Link href="/" className="flex items-center" onClick={(e) => handleNavClick(e, "/")}>
           <motion.div 
             initial={{ opacity: 0, x: -20 }} 
@@ -99,13 +107,14 @@ export default function Navbar() {
             transition={{ duration: 0.5 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            className="flex items-center gap-1"
           >
-            <span className="font-bold text-xl md:text-2xl text-navy-800">Aakbar</span>
-            <span className="gold-text text-xl md:text-2xl">Plumbing</span>
+            <span className="font-bold text-lg sm:text-xl md:text-2xl text-navy-800">Aakbar</span>
+            <span className="gold-text text-lg sm:text-xl md:text-2xl">Plumbing</span>
           </motion.div>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-6 lg:gap-8">
           {navLinks.map((link, index) => (
             <FadeIn key={link.href} delay={0.1 * index}>
               <Link
@@ -120,8 +129,11 @@ export default function Navbar() {
                 <motion.span
                   className="absolute bottom-0 left-0 w-full h-0.5 bg-gold-500"
                   initial={{ scaleX: 0 }}
-                  animate={{ scaleX: activeLink === link.href ? 1 : 0 }}
-                  transition={{ duration: 0.2 }}
+                  animate={{ 
+                    scaleX: activeLink === link.href ? 1 : 0,
+                    opacity: activeLink === link.href ? 1 : 0.5
+                  }}
+                  transition={{ duration: 0.3 }}
                 />
               </Link>
             </FadeIn>
@@ -129,11 +141,12 @@ export default function Navbar() {
 
           <FadeIn delay={0.4}>
             <motion.div 
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2 }}
             >
               <Link href="/contact">
-                <Button className="bg-gold-500 hover:bg-gold-600 text-navy-900 gap-2">
+                <Button className="bg-gold-500 hover:bg-gold-600 text-navy-900 gap-2 shadow-md hover:shadow-lg transition-shadow">
                   <Phone size={16} />
                   <span>416-731-4400</span>
                 </Button>
@@ -147,20 +160,22 @@ export default function Navbar() {
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              className="p-2 rounded-full hover:bg-navy-100/50 transition-colors"
             >
-              <Button variant="outline" size="icon" className="border-navy-200">
+              <Button variant="outline" size="icon" className="border-navy-200 h-10 w-10">
                 <Menu className="h-5 w-5 text-navy-800" />
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </motion.div>
           </SheetTrigger>
-          <SheetContent side="right" className="bg-white">
-            <nav className="flex flex-col gap-4 mt-8">
+          <SheetContent side="right" className="bg-white w-[280px] sm:w-[320px]">
+            <nav className="flex flex-col gap-4 mt-8 px-4">
               {navLinks.map((link) => (
                 <motion.div
                   key={link.href}
                   whileHover={{ x: 5 }}
                   whileTap={{ scale: 0.95 }}
+                  className="py-2"
                 >
                   <Link
                     href={link.href}
@@ -169,7 +184,7 @@ export default function Navbar() {
                       setIsOpen(false)
                     }}
                     className={cn(
-                      "text-base font-medium transition-colors hover:text-gold-500 p-2 block",
+                      "text-base font-medium transition-colors hover:text-gold-500 block",
                       activeLink === link.href ? "text-gold-500" : "text-navy-700",
                     )}
                   >
@@ -183,8 +198,8 @@ export default function Navbar() {
                 className="mt-4"
               >
                 <Link href="/contact">
-                  <Button className="w-full bg-gold-500 hover:bg-gold-600 text-navy-900 gap-2">
-                    <Phone size={16} />
+                  <Button className="w-full bg-gold-500 hover:bg-gold-600 text-navy-900 gap-2 h-12 text-base">
+                    <Phone size={18} />
                     <span>416-731-4400</span>
                   </Button>
                 </Link>
@@ -192,7 +207,7 @@ export default function Navbar() {
             </nav>
           </SheetContent>
         </Sheet>
-      </div>
+      </motion.div>
     </motion.header>
   )
 }
