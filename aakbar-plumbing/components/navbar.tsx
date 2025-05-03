@@ -107,7 +107,7 @@ export default function Navbar() {
             transition={{ duration: 0.5 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-1"
+            className="flex items-center"
           >
             <span className="font-bold text-lg sm:text-xl md:text-2xl text-navy-800">Aakbar</span>
             <span className="gold-text text-lg sm:text-xl md:text-2xl">Plumbing</span>

@@ -31,29 +31,29 @@ export default function Footer() {
                 <span>Aakbar</span>
                 <span className="gold-text">Plumbing</span>
               </h3>
-              <p className="mb-4 text-beige-200">
+              <p className="mb-4 text-beige-200 font-bold text-sm">
                 Reliable & affordable plumbing services with upfront pricing and a 100% satisfaction guarantee.
               </p>
               <div className="flex flex-col gap-2">
                 <div className="flex items-center gap-2">
                   <Phone size={16} className="text-gold-400" />
-                  <a href="tel:4167314400" className="hover:text-gold-400 transition-colors">
+                  <a href="tel:4167314400" className="hover:text-gold-400 transition-colors font-bold text-sm">
                     416-731-4400
                   </a>
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail size={16} className="text-gold-400" />
-                  <a href="mailto:aakbarplumbing@gmail.com" className="hover:text-gold-400 transition-colors">
+                  <a href="mailto:aakbarplumbing@gmail.com" className="hover:text-gold-400 transition-colors font-bold text-sm">
                     aakbarplumbing@gmail.com
                   </a>
                 </div>
                 <div className="flex items-center gap-2">
                   <Clock size={16} className="text-gold-400" />
-                  <span>24/7 Emergency Services</span>
+                  <span className="font-bold text-sm">24/7 Emergency Services</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <MapPin size={16} className="text-gold-400" />
-                  <span>Etobicoke, ON, Canada</span>
+                  <span className="font-bold text-sm">Etobicoke, ON, Canada</span>
                 </div>
               </div>
             </div>
@@ -64,37 +64,37 @@ export default function Footer() {
               <h3 className="text-xl font-bold mb-4 text-white">Our Services</h3>
               <ul className="space-y-2">
                 <li>
-                  <a href="/#services" className="hover:text-gold-400 transition-colors">
+                  <a href="/#services" className="hover:text-gold-400 transition-colors font-bold text-sm">
                     All Services
                   </a>
                 </li>
                 <li>
-                  <a href="/#services" className="hover:text-gold-400 transition-colors">
+                  <a href="/#services" className="hover:text-gold-400 transition-colors font-bold text-sm">
                     Leak Detection & Repairs
                   </a>
                 </li>
                 <li>
-                  <a href="/#services" className="hover:text-gold-400 transition-colors">
+                  <a href="/#services" className="hover:text-gold-400 transition-colors font-bold text-sm">
                     Drain Cleaning & Unclogging
                   </a>
                 </li>
                 <li>
-                  <a href="/#services" className="hover:text-gold-400 transition-colors">
+                  <a href="/#services" className="hover:text-gold-400 transition-colors font-bold text-sm">
                     Water Heater Services
                   </a>
                 </li>
                 <li>
-                  <a href="/#services" className="hover:text-gold-400 transition-colors">
+                  <a href="/#services" className="hover:text-gold-400 transition-colors font-bold text-sm">
                     Gas Line Services
                   </a>
                 </li>
                 <li>
-                  <a href="/#services" className="hover:text-gold-400 transition-colors">
+                  <a href="/#services" className="hover:text-gold-400 transition-colors font-bold text-sm">
                     Pipe Repairs & Installations
                   </a>
                 </li>
                 <li>
-                  <a href="/#services" className="hover:text-gold-400 transition-colors">
+                  <a href="/#services" className="hover:text-gold-400 transition-colors font-bold text-sm">
                     Plumbing Renovations
                   </a>
                 </li>

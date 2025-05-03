@@ -11,6 +11,37 @@ import Image from "next/image"
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-beige-100">
+      {/* Animated pipe */}
+      <motion.div
+        initial={{ x: -200, opacity: 0, rotate: -195 }}
+        animate={{ x: 0, opacity: 1, rotate: -15 }}
+        transition={{
+          duration: 1.5,
+          ease: "easeOut",
+          delay: 0.5,
+        }}
+        className="absolute left-[10%] top-[35%] -translate-y-1/2 z-20 hidden lg:block"
+      >
+        <motion.div
+          animate={{
+            rotate: [-15, -25, -15, -5, -15],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        >
+          <Image
+            src="/images/pipe.png"
+            alt="Pipe"
+            width={186}
+            height={186}
+            className="opacity-70"
+          />
+        </motion.div>
+      </motion.div>
+
       {/* Animated wrench */}
       <motion.div
         initial={{ x: 200, opacity: 0, rotate: 180 }}
@@ -107,8 +138,8 @@ export default function HeroSection() {
             />
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-navy-800">
               <span className="block">Reliable & Affordable</span>
-              <span className="block">Plumbing Services</span>
-              <span className="gold-text block mt-2">
+              <span className="block mb-4">Plumbing Services</span>
+              <span className="gold-text block mt-2 h-12 md:h-16 flex items-center justify-center">
                 <TypeAnimation
                   sequence={[
                     "You Can Trust",
@@ -129,8 +160,8 @@ export default function HeroSection() {
           </motion.div>
 
           <FadeIn delay={0.3}>
-            <p className="text-xl mb-6 text-navy-600">
-              Fast, professional plumbing services with upfront pricing and a 100% satisfaction guarantee.
+            <p className="text-xl mb-6 text-navy-800 font-bold">
+              Fast, professional plumbing services with upfront pricing<br />and a 100% satisfaction guarantee.
             </p>
           </FadeIn>
 
