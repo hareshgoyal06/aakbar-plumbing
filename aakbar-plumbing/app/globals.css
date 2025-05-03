@@ -106,3 +106,10 @@
   margin-left: 0.5rem;
   margin-right: 0.5rem;
 }
+
+.plumbing-text {
+  color: theme("colors.gold.500");
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  font-weight: 700;
+}

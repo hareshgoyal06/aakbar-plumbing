@@ -29,7 +29,7 @@ export default function Footer() {
             <div>
               <h3 className="text-xl font-bold mb-4 text-white flex items-center">
                 <span>Aakbar</span>
-                <span className="gold-text">Plumbing</span>
+                <span className="plumbing-text">Plumbing</span>
               </h3>
               <p className="mb-4 text-beige-200 font-bold text-sm">
                 Reliable & affordable plumbing services with upfront pricing and a 100% satisfaction guarantee.

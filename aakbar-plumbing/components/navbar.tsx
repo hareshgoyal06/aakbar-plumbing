@@ -110,7 +110,7 @@ export default function Navbar() {
             className="flex items-center"
           >
             <span className="font-bold text-lg sm:text-xl md:text-2xl text-navy-800">Aakbar</span>
-            <span className="gold-text text-lg sm:text-xl md:text-2xl">Plumbing</span>
+            <span className="plumbing-text text-lg sm:text-xl md:text-2xl">Plumbing</span>
           </motion.div>
         </Link>
 
