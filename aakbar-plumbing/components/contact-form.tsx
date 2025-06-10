@@ -1,16 +1,29 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import * as z from "zod"
-import { toast } from "@/hooks/use-toast"
-import { motion } from "framer-motion"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import { toast } from "@/hooks/use-toast";
+import { motion } from "framer-motion";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -28,11 +41,11 @@ const formSchema = z.object({
   message: z.string().min(10, {
     message: "Message must be at least 10 characters.",
   }),
-})
+});
 
 export default function ContactForm() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -43,24 +56,31 @@ export default function ContactForm() {
       service: "",
       message: "",
     },
-  })
+  });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    setIsSubmitting(true)
+    console.log("Form submitted with values:", values);
+    setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/send', {
-        method: 'POST',
+      console.log("Sending request to /api/send");
+      const response = await fetch("/api/send", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(values),
       });
 
+      console.log("Response status:", response.status);
       if (!response.ok) {
-        throw new Error('Failed to send message');
+        const errorData = await response.json();
+        console.error("Error response:", errorData);
+        throw new Error("Failed to send message");
       }
 
+      const data = await response.json();
+      console.log("Success response:", data);
       toast({
         title: "Message sent successfully!",
         description: "We'll get back to you as soon as possible.",
@@ -112,7 +132,8 @@ export default function ContactForm() {
           </motion.div>
           <h3 className="text-2xl font-bold text-navy-800 mb-2">Thank You!</h3>
           <p className="text-navy-600">
-            Your message has been sent successfully. We'll get back to you shortly.
+            Your message has been sent successfully. We'll get back to you
+            shortly.
           </p>
         </div>
         <Button
@@ -136,7 +157,10 @@ export default function ContactForm() {
             <FormItem>
               <FormLabel className="text-navy-700">Name</FormLabel>
               <FormControl>
-                <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
+                <motion.div
+                  whileHover={{ y: -2 }}
+                  transition={{ duration: 0.2 }}
+                >
                   <Input
                     placeholder="Your name"
                     {...field}
@@ -157,7 +181,10 @@ export default function ContactForm() {
               <FormItem>
                 <FormLabel className="text-navy-700">Email</FormLabel>
                 <FormControl>
-                  <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
+                  <motion.div
+                    whileHover={{ y: -2 }}
+                    transition={{ duration: 0.2 }}
+                  >
                     <Input
                       placeholder="Your email"
                       type="email"
@@ -178,7 +205,10 @@ export default function ContactForm() {
               <FormItem>
                 <FormLabel className="text-navy-700">Phone Number</FormLabel>
                 <FormControl>
-                  <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
+                  <motion.div
+                    whileHover={{ y: -2 }}
+                    transition={{ duration: 0.2 }}
+                  >
                     <Input
                       placeholder="Your phone number"
                       {...field}
@@ -206,12 +236,22 @@ export default function ContactForm() {
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="leak-detection">Leak Detection & Repairs</SelectItem>
-                    <SelectItem value="drain-cleaning">Drain Cleaning & Unclogging</SelectItem>
-                    <SelectItem value="water-heater">Water Heater Services</SelectItem>
+                    <SelectItem value="leak-detection">
+                      Leak Detection & Repairs
+                    </SelectItem>
+                    <SelectItem value="drain-cleaning">
+                      Drain Cleaning & Unclogging
+                    </SelectItem>
+                    <SelectItem value="water-heater">
+                      Water Heater Services
+                    </SelectItem>
                     <SelectItem value="gas-line">Gas Line Services</SelectItem>
-                    <SelectItem value="pipe-repairs">Pipe Repairs & Installations</SelectItem>
-                    <SelectItem value="renovations">Plumbing Renovations</SelectItem>
+                    <SelectItem value="pipe-repairs">
+                      Pipe Repairs & Installations
+                    </SelectItem>
+                    <SelectItem value="renovations">
+                      Plumbing Renovations
+                    </SelectItem>
                     <SelectItem value="emergency">Emergency Service</SelectItem>
                     <SelectItem value="other">Other</SelectItem>
                   </SelectContent>
@@ -229,7 +269,10 @@ export default function ContactForm() {
             <FormItem>
               <FormLabel className="text-navy-700">Message</FormLabel>
               <FormControl>
-                <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
+                <motion.div
+                  whileHover={{ y: -2 }}
+                  transition={{ duration: 0.2 }}
+                >
                   <Textarea
                     placeholder="Please describe your plumbing needs or issues"
                     className="min-h-[120px] border-beige-200 focus:border-gold-400 focus:ring-gold-400"
@@ -264,5 +307,5 @@ export default function ContactForm() {
         </motion.div>
       </form>
     </Form>
-  )
+  );
 }
